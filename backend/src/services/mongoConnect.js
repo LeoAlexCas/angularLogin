@@ -13,6 +13,6 @@ class MongoConnection {
         });
         console.log('MongoConnection: Conectado a mongo correctamente');
     };
-}
+};
 
 module.exports = { MongoConnection };

@@ -9,4 +9,13 @@ const create = async (model) => {
     };
 };
 
-module.exports = { create };
+const getAuthByName = async (userName) => {
+    try {
+        const auth = await AuthModel.find({ userName });
+        return auth;
+    } catch(error) {    
+        throw error;
+    };
+}
+
+module.exports = { create, getAuthByName };

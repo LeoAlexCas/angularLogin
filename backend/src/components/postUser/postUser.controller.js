@@ -6,7 +6,7 @@ function postUserController(req, res) {
         res.status(200).send(response);
     } catch (error) {
         throw error;
-    }
-}
+    };
+};
 
 module.exports = postUserController;
