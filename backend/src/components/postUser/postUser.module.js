@@ -1,3 +1,5 @@
+const { create } = require('../../repositories/auth.repository');
+
 function postUserModule(req) {
     try {
         console.log(req.body)
@@ -5,6 +7,14 @@ function postUserModule(req) {
         if(!checked) {
             throw new Error('body incorrecto');
         }
+
+        const userCreated = {
+            userName: req.body.userName,
+            pass: req.body.pass,
+            roleId: req.body.roleId
+        }
+
+        create(userCreated);
 
 
         return 'postEnviado';
