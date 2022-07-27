@@ -1,8 +1,8 @@
 const postUserModule = require('./postUser.module');
 
-function postUserController(req, res) {
+async function postUserController(req, res) {
     try {
-        const response = postUserModule(req);
+        const response = await postUserModule(req);
         res.status(200).send(response);
     } catch (error) {
         throw error;

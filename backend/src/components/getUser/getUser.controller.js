@@ -1,8 +1,8 @@
 const getUserModule = require('./getUser.module');
 
-function getUserController(req, res) {
+async function getUserController(req, res) {
     try {
-        const response = getUserModule(req);
+        const response = await getUserModule(req);
         res.status(200).send(response);
     } catch (error) {
         throw error;

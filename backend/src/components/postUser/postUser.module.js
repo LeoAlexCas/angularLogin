@@ -1,6 +1,6 @@
 const { create } = require('../../repositories/auth.repository');
 
-function postUserModule(req) {
+async function postUserModule(req) {
     try {
         console.log(req.body)
         const checked = bodyCheck(req.body);
@@ -14,7 +14,7 @@ function postUserModule(req) {
             roleId: req.body.roleId
         }
 
-        create(userCreated);
+        await create(userCreated);
 
 
         return 'postEnviado';

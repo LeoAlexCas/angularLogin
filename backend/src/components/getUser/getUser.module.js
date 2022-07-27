@@ -8,7 +8,6 @@ async function getUserModule(req) {
         }
 
         const auth = await getAuthByName(req.headers.name);
-        console.log(auth);
 
         return auth[0];
     } catch(error) {
