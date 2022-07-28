@@ -5,7 +5,7 @@ async function postUserController(req, res) {
         const response = await postUserModule(req);
         res.status(200).send(response);
     } catch (error) {
-        throw error;
+        res.status(500).send(error);
     };
 };
 
