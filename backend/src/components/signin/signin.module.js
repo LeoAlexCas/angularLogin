@@ -11,12 +11,11 @@ async function signInModule(req) {
         };
     
         const userData = userTocheck[0];
-        console.log("PASS DEL USERDATA", userData.pass)
-        console.log(userData)
+  
         let token;
         
         if( pass == userData.pass) {
-            token = jwt.sign(JSON.stringify(userData), 'stil');
+            token = jwt.sign(JSON.stringify(userData.userNumber), 'stil');
         } else {
             throw new Error("Pass incorrecta");
         }

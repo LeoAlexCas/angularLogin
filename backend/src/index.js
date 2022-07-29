@@ -13,6 +13,7 @@ async function startServer() {
     try {
         app.use(bodyParser.json({ limit: "50mb" }));
         app.use(cors());
+        app.use(express.json());
 
         await mongoConnex.connect();
 
