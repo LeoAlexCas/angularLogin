@@ -28,7 +28,8 @@ const bodyCheck = (body) => {
     if(
         !body.userName ||
         !body.pass ||
-        !body.roleId
+        !body.roleId ||
+        !body.userNumber
         ) {
             return false;
         }

@@ -18,4 +18,13 @@ const getAuthByName = async (userName) => {
     };
 }
 
-module.exports = { create, getAuthByName };
+const updateUserByName = async (data, model) => {
+    try {
+        const userToUpdate = data;
+        return await AuthModel.updateOne({ userName: data }, model);
+    } catch(error) {
+        throw error;
+    }
+}
+
+module.exports = { create, getAuthByName, updateUserByName };
