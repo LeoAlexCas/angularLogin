@@ -12,12 +12,28 @@ async function signUpModule(req) {
             userNumber
         };
         
-        const checker = await getAuthByName(userName);
-        if(checker[0]) {
-            throw new Error("nombre duplicado");
-        }
+        // const checker = await getAuthByName(userName);
+        // if(checker[0]) {
+        //     throw new Error("nombre duplicado");
+        // }
 
-        const created = await create(newUser);
+        const created = await create(newUser)
+            .catch((error) => {
+                const message = error.message || "";
+                console.log(message);
+                if(message.includes("E11000")) {
+                    console.log("primer includes")
+                    if(message.includes('userName')) {
+                        //TODO error por usuario duplicado
+                        throw new Error("nombre usado");
+                    };
+                    if(message.includes('roleId')) {
+                        //TODO error por usuario duplicado
+                        throw new Error("roleId");
+                    };
+                };
+            }
+        );
 
         const token = jwt.sign({_id: created._id}, `${process.env.SECRET_WORD}`);
 
