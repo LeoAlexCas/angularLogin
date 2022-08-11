@@ -11,11 +11,14 @@ async function signUpModule(req) {
             roleId,
             userNumber
         };
-
-        const checker = await getAuthByName(userName);
-        console.log(checker);
         
+        const checker = await getAuthByName(userName);
+        if(checker[0]) {
+            throw new Error("nombre duplicado");
+        }
+
         const created = await create(newUser);
+
         const token = jwt.sign({_id: created._id}, `${process.env.SECRET_WORD}`);
 
         return token;

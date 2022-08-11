@@ -3,8 +3,8 @@ const { Schema } = mongo;
 
 const authSchema = new Schema({
         userName: { type: String, required: true, unique: true },
-        pass: { type: String, required: true, unique: true },
-        roleId: { type: String, required: true, unique: true },
+        pass: { type: String, required: true },
+        roleId: { type: String, required: true},
         userNumber: { type: String, required: true, unique: true}
     }, 
     { 
