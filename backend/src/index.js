@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongo = require('mongoose'),
 { MongoConnection } = require('./services/mongoConnect');
-const uri = 'mongodb+srv://root:rgN4YGQuKpQH7frU@cluster0.khtcb2v.mongodb.net/?retryWrites=true&w=majority'
+require('dotenv').config();
+const uri = `mongodb+srv://root:${process.env.MONGO_USER}@cluster0.khtcb2v.mongodb.net/?retryWrites=true&w=majority`
 const routes = require('./routes/routes');
 
 const mongoConnex = new MongoConnection(mongo, uri);
