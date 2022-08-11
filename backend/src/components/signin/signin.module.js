@@ -1,5 +1,6 @@
 const { getAuthByName } = require('../../repositories/auth.repository');
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 async function signInModule(req) {
     try {
@@ -15,7 +16,7 @@ async function signInModule(req) {
         let token;
         
         if( pass == userData.pass) {
-            token = jwt.sign(JSON.stringify(userData.userNumber), 'stil');
+            token = jwt.sign(JSON.stringify(userData.userNumber), `${process.env.SECRET_WORD}`);
         } else {
             throw new Error("Pass incorrecta");
         }
