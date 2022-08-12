@@ -1,6 +1,8 @@
 node_modules/
 backend/node_modules/
 .env
+.angular
+.vscode
 
 # Compiled output
 /dist
@@ -21,14 +23,6 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
 
 # Miscellaneous
 /.angular/cache
