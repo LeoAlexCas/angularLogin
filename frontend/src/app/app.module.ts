@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './compoments/signup/signup.component';
 import { SigninComponent } from './compoments/signin/signin.component';
 import { InventoryComponent } from './compoments/inventory/inventory.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InventoryComponent } from './compoments/inventory/inventory.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
