@@ -22,7 +22,6 @@ async function signUpModule(req) {
                 const message = error.message || "";
                 console.log(message);
                 if(message.includes("E11000")) {
-                    console.log("primer includes")
                     if(message.includes('userName')) {
                         //TODO error por usuario duplicado
                         throw new Error("nombre usado");
@@ -36,6 +35,7 @@ async function signUpModule(req) {
         );
 
         const token = jwt.sign({_id: created._id}, `${process.env.SECRET_WORD}`);
+        console.log('Token Generado correctamente');
 
         return token;
     } catch(error) {
