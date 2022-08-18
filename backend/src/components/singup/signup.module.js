@@ -37,7 +37,10 @@ async function signUpModule(req) {
         const token = jwt.sign({_id: created._id}, `${process.env.SECRET_WORD}`);
         console.log('Token Generado correctamente');
 
-        return token;
+        return {
+            status: 'OK',
+            token
+        };
     } catch(error) {
         throw error;
     }
