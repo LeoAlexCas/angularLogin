@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './compoments/signin/signin.component';
 import { SignupComponent } from './compoments/signup/signup.component';
 import { InventoryComponent } from './compoments/inventory/inventory.component';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'inventory',
-    component: InventoryComponent
+    component: InventoryComponent,
+    canActivate: [ AuthGuard ]
   }
 ];
 
