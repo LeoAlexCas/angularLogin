@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private url = 'http://localhost:3000/signup'
+  private signUpUrl = 'http://localhost:3000/signup';
+  private signInUrl = 'http://localhost:3000/signin';
 
   constructor(
     private http: HttpClient
@@ -20,6 +21,14 @@ export class AuthService {
       userNumber: Math.random().toString()
     }
     console.log(newUser);
-    return this.http.post(this.url, newUser);
+    return this.http.post(this.signUpUrl, newUser);
+  }
+
+  postSignIn(user: any) {
+    const logUser = {
+      userName: user.email,
+      pass: user.password
+    };
+    return this.http.post(this.signInUrl, logUser);
   }
 }

@@ -10,18 +10,24 @@ async function signInModule(req) {
         if(userTocheck.length === 0) {
             throw new Error("Nombre de usuario incorrecto");
         };
-    
+        
+        console.log('Chequeando userData');
         const userData = userTocheck[0];
   
         let token;
         
-        if( pass == userData.pass) {
+        if(pass == userData.pass) {
+            console.log('Estableciendo Token');
             token = jwt.sign(JSON.stringify(userData.userNumber), `${process.env.SECRET_WORD}`);
         } else {
+            console.log('Pass Incorrecta');
             throw new Error("Pass incorrecta");
         }
     
-        return token;    
+        return {
+            status: 'OK',
+            token
+        };
 
     } catch(error) {
         throw error;
