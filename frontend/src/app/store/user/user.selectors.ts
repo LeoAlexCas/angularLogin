@@ -1,9 +1,9 @@
-import { Select } from "@ngxs/store";
+import { Selector } from "@ngxs/store";
 import { UserState } from "./user.state";
 import { UserStateModel } from "./user.model";
 
 export class UserStateSelectors {
-    @Select([UserState]) static SelectUserState(state: UserStateModel): UserStateModel {
+    @Selector([UserState]) static SelectUserState(state: UserStateModel): UserStateModel {
         return state;
     }
 }

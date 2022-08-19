@@ -38,7 +38,7 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['/inventory']);
           }
         );
-        console.log(this._store.selectSnapshot(UserStateSelectors))
+        console.log(this._store.selectSnapshot(UserStateSelectors).token)
     }catch (error) {
       console.error(error);
     }
