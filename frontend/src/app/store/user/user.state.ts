@@ -1,9 +1,7 @@
-import { state } from '@angular/animations';
-import { HttpClientXsrfModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Action, actionMatcher, State, StateContext } from '@ngxs/store';
+import { Action, State, StateContext } from '@ngxs/store';
 import { UserStateModel, defaultStateModel } from './user.model';
-import { setUserState } from './user.actions';
+import { SetUserState } from './user.actions';
 
 @State<UserStateModel>({
     name: 'User',
@@ -11,10 +9,10 @@ import { setUserState } from './user.actions';
 })
 @Injectable()
 export class UserState {
-    @Action(setUserState)
+    @Action(SetUserState)
     setUserState(
         ctx: StateContext<UserStateModel>, 
-        action: setUserState
+        action: SetUserState
         ) {
         ctx.patchState({
             ...action.data
