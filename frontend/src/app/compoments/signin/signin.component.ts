@@ -35,10 +35,10 @@ export class SigninComponent implements OnInit {
           res => {
             this._store.dispatch(new setUserState({ userName: this.user.email, roleId: 'user', token: (res as any).token }));
             console.log((res as any).token)
-            console.log(this._store.selectSnapshot(UserStateSelectors.SelectUserState).roleId);
             this.router.navigate(['/inventory']);
           }
         );
+        console.log(this._store.selectSnapshot(UserStateSelectors.SelectUserState).roleId);
     }catch (error) {
       console.error(error);
     }

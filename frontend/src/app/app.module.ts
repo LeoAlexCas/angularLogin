@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthGuard } from '../app/guards/auth/auth.guard';
+import { UserState } from './store/user/user.state';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { AuthGuard } from '../app/guards/auth/auth.guard';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxsModule.forRoot()
+    NgxsModule.forRoot([UserState]),
+    NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [
     AuthGuard
