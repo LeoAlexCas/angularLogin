@@ -24,6 +24,7 @@ import { AuthGuard } from '../app/guards/auth/auth.guard';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxsModule.forRoot()
   ],
   providers: [
     AuthGuard
