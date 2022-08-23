@@ -4,8 +4,6 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { SetUserState } from 'src/app/store/user/user.actions';
 import { Store } from '@ngxs/store';
-import { UserStateSelectors } from 'src/app/store/user/user.selectors';
-import { UserState } from 'src/app/store/user/user.state';
 
 @Component({
   selector: 'app-signin',
@@ -37,7 +35,7 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['/inventory']);
           }
         );
-    }catch (error) {
+    } catch(error) {
       console.error(error);
     }
   }
