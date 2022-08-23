@@ -13,14 +13,16 @@
             <a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventory</a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/signin" routerLinkActive="active">SignIn</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="signup" routerLinkActive="active">SignUp</a>
-            </li>
-          </ul>
+          <div *ngIf="">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/signin" routerLinkActive="active">SignIn</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="signup" routerLinkActive="active">SignUp</a>
+              </li>
+            </ul>
+          </div>
       </div>
     </div>
   </nav>

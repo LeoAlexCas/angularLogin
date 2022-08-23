@@ -10,10 +10,11 @@ import { SignupComponent } from './compoments/signup/signup.component';
 import { SigninComponent } from './compoments/signin/signin.component';
 import { InventoryComponent } from './compoments/inventory/inventory.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthGuard } from '../app/guards/auth/auth.guard';
 import { UserState } from './store/user/user.state';
+import { TokenInterceptorService } from './services/tokenInterceptor/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,12 @@ import { UserState } from './store/user/user.state';
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
