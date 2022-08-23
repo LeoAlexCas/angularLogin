@@ -44,12 +44,13 @@ export class AuthService {
   };
 
   isLoggedIn() {
-    if(this._store.selectSnapshot(UserStateSelectors.SelectUserState).token) {
-      console.log('Si hay token')
-      console.log(this._store.selectSnapshot(UserStateSelectors.SelectUserState).token);
-      return true;
-    }
-    console.log('no hay token');
-    return false;
+    // if(this._store.selectSnapshot(UserStateSelectors.SelectUserState)?.token) {
+    //   console.log('Si hay token')
+    //   console.log(this._store.selectSnapshot(UserStateSelectors.SelectUserState).token);
+    //   return true;
+    // }
+    // console.log('no hay token');
+    // return false;
+    return !!this._store.selectSnapshot(UserStateSelectors.SelectUserState)?.token;
   }
 };

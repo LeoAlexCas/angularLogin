@@ -9,18 +9,12 @@ import { AuthService } from './services/auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public title = 'frontend';
-  public logged = false;    
+  public title = 'frontend';  
 
   constructor(
-    private authService: AuthService
+    public authService: AuthService
   ) {}
 
   ngOnInit() {
-    
-    if(this.authService.isLoggedIn()) {
-      console.log('En app.component hay token')
-      this.logged = true
-    }
   };
 };

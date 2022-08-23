@@ -13,7 +13,7 @@
             <a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventory</a>
           </li>
         </ul>
-          <div class="ml-auto" *ngIf="!logged">
+          <ng-container class="ml-auto" *ngIf="!authService.isLoggedIn()">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink="/signin" routerLinkActive="active">SignIn</a>
@@ -22,7 +22,12 @@
                 <a class="nav-link" routerLink="signup" routerLinkActive="active">SignUp</a>
               </li>
             </ul>
-          </div>
+          </ng-container>
+          <ng-container class="navbar-nav ml-auto" *ngIf="authService.isLoggedIn()">
+            <ul>
+              <li (click)="this.authService.logOut()">LogOut</li>
+            </ul>
+          </ng-container>
       </div>
     </div>
   </nav>
