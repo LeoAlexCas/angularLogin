@@ -16,7 +16,7 @@ const getAuthByName = async (userName) => {
     } catch(error) {    
         throw error;
     };
-}
+};
 
 const updateUserByName = async (data, model) => {
     try {
@@ -24,7 +24,7 @@ const updateUserByName = async (data, model) => {
         return await AuthModel.updateOne({ userName: data }, model);
     } catch(error) {
         throw error;
-    }
-}
+    };
+};
 
 module.exports = { create, getAuthByName, updateUserByName };
