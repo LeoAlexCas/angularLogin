@@ -1,5 +1,6 @@
 const { getAuthByName } = require('../../repositories/auth.repository');
 const jwt = require("jsonwebtoken");
+const bycrypt = require('bcryptjs');
 require('dotenv').config();
 
 async function signInModule(req) {
@@ -16,7 +17,7 @@ async function signInModule(req) {
   
         let token;
         
-        if(pass == userData.pass) {
+        if(await bycrypt.compare(pass, userData.pass)) {
             console.log('Estableciendo Token');
             token = jwt.sign(JSON.stringify(userData.userNumber), `${process.env.SECRET_WORD}`);
         } else {
