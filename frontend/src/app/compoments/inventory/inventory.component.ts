@@ -17,12 +17,15 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {  
     this.inventoryService.getItems()
-      .subscribe(
-        (items) => {
+      .subscribe({
+        next: items => {
           this.items = ( items as ItemResponse );
           console.log(items);
+        },
+        error: error => {
+          console.error(error);
         }
-      )
+      })
   }
 
 }
