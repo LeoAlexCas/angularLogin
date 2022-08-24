@@ -25,4 +25,13 @@ const deleteItem = async (data) => {
     };
 };
 
-module.exports = { createItem, updateItem, deleteItem };
+const getItems = async () => {
+    try {
+        const items = await ItemModel.find();
+        return items;
+    } catch(error) {
+        throw error;
+    };
+};
+
+module.exports = { createItem, updateItem, deleteItem, getItems };

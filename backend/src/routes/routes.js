@@ -3,7 +3,8 @@ const getUserRoute = require('../components/getUser/getUser.route');
 const signInRoute = require('../components/signin/signin.route');
 const updateUserRoute = require('../components/updateUser/updateUser.route');
 const signupRoute = require('../components/singup/signup.route');
-const itemsRoute = require('../components/postItem/postItem.route');
+const postItemsRoute = require('../components/postItem/postItem.route');
+const getItemsRoute = require('../components/getItems/getItems.route');
 
 function routes(app) {
     postUserRoute(app);
@@ -11,7 +12,8 @@ function routes(app) {
     signInRoute(app);
     updateUserRoute(app);
     signupRoute(app);
-    itemsRoute(app);
+    postItemsRoute(app);
+    getItemsRoute(app);
 };
 
 module.exports = routes;
