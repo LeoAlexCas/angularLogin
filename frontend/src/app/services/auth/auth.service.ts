@@ -28,7 +28,7 @@ export class AuthService {
     }
     console.log(newUser);
     return this.http.post(this.signUpUrl, newUser);
-  }
+  };
 
   postSignIn(user: any) {
     const logUser = {
@@ -52,5 +52,5 @@ export class AuthService {
     // console.log('no hay token');
     // return false;
     return !!this._store.selectSnapshot(UserStateSelectors.SelectUserState)?.token;
-  }
+  };
 };

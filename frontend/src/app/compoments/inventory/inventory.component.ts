@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from 'src/app/services/inventory/inventory.service';
+import { Item, ItemResponse } from 'src/app/models/item.interface';
 
 @Component({
   selector: 'app-inventory',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor() { }
+  public items: ItemResponse = []
 
-  ngOnInit(): void {
+  constructor(
+    private inventoryService: InventoryService
+  ) { }
+
+  ngOnInit(): void {  
+    this.inventoryService.getItems()
+      .subscribe(
+        (items) => {
+          this.items = ( items as ItemResponse );
+          console.log(items);
+        }
+      )
   }
 
 }
