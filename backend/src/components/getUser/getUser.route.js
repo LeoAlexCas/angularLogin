@@ -6,7 +6,7 @@ function route(app) {
         '/getUser', 
         verifyToken,
         getUserController
-        );
+    );
 }
 
 module.exports = route;
