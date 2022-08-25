@@ -1,11 +1,11 @@
 export interface Item {
-    _id: String,
-    itemName: String,
+    _id: string,
+    itemName: string,
     amount: Number,
-    description: String,
-    createdAt: String,
-    updatedAt: String,
-    _v?: Number
+    description: string,
+    createdAt: string,
+    updatedAt: string,
+    _v?: number
 };
 
 export interface ItemResponse extends Array<Item> {

@@ -14,5 +14,9 @@ export class InventoryService {
 
   getItems() {
     return this.http.get(this.items);
-  }
-}
+  };
+
+  deleteItem(id: string) {
+    return this.http.delete(`${this.items}/${id}`);
+  };
+};

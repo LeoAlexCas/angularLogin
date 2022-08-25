@@ -27,4 +27,16 @@ export class InventoryComponent implements OnInit {
         }
       });
   };
+
+  deleteItem(id: string) {
+    this.inventoryService.deleteItem(id)
+      .subscribe({
+        next: deleted => {
+          return deleted;
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+  }
 };
