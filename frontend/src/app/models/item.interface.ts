@@ -1,7 +1,7 @@
 export interface Item {
     _id: string,
     itemName: string,
-    amount: Number,
+    amount: number,
     description: string,
     createdAt: string,
     updatedAt: string,

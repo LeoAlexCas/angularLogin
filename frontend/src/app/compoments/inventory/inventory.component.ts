@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory/inventory.service';
 import { Item, ItemResponse } from 'src/app/models/item.interface';
+import { createdItem } from 'src/app/models/createdItem.interface';
 
 @Component({
   selector: 'app-inventory',
@@ -37,6 +38,8 @@ export class InventoryComponent implements OnInit {
         error: error => {
           console.error(error);
         }
-      })
-  }
+      });
+  };
+
+
 };

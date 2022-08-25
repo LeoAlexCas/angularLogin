@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngxs/store';
+import { createdItem } from 'src/app/models/createdItem.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +20,8 @@ export class InventoryService {
   deleteItem(id: string) {
     return this.http.delete(`${this.items}/${id}`);
   };
+
+  createItem(item: createdItem) {
+    return this.http.post(this.items, item);
+  }
 };
