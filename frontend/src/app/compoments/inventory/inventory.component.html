@@ -1,7 +1,31 @@
-<div *ngFor="let item of items">
-    <div>
-        <ul>
-            <li>{{item.itemName}}</li>
-        </ul>
+<div class="container inventoryContainer">
+    <div class="row titleContainer">
+        <div class="col-9">
+            <h2>Inventory</h2>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-success">Add Item</button>
+        </div>
+    </div>
+    <div *ngFor="let item of items">
+        <div>
+            <div class="row">
+                <div class="col-4">
+                    <p>{{item.itemName}}</p>
+                </div>
+                <div class="col-4">
+                    <p>{{item.description}}</p>    
+                </div>
+                <div class="col-1">
+                    <p>{{item.amount}}</p>    
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-primary">Edit</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

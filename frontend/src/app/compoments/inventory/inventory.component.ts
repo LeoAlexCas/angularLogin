@@ -9,7 +9,7 @@ import { Item, ItemResponse } from 'src/app/models/item.interface';
 })
 export class InventoryComponent implements OnInit {
 
-  public items: ItemResponse = []
+  public items: ItemResponse = [];
 
   constructor(
     private inventoryService: InventoryService
@@ -25,7 +25,6 @@ export class InventoryComponent implements OnInit {
         error: error => {
           console.error(error);
         }
-      })
-  }
-
-}
+      });
+  };
+};
