@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './compoments/signup/signup.component';
 import { SigninComponent } from './compoments/signin/signin.component';
 import { InventoryComponent } from './compoments/inventory/inventory.component';
+import { CreateItemComponent } from './compoments/create-item/create-item.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -16,12 +17,14 @@ import { AuthGuard } from '../app/guards/auth/auth.guard';
 import { UserState } from './store/user/user.state';
 import { TokenInterceptorService } from './services/tokenInterceptor/token-interceptor.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
-    InventoryComponent
+    InventoryComponent,
+    CreateItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory/inventory.service';
 import { Item, ItemResponse } from 'src/app/models/item.interface';
-import { createdItem } from 'src/app/models/createdItem.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inventory',
@@ -13,7 +13,8 @@ export class InventoryComponent implements OnInit {
   public items: ItemResponse = [];
 
   constructor(
-    private inventoryService: InventoryService
+    private inventoryService: InventoryService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {  
@@ -41,5 +42,8 @@ export class InventoryComponent implements OnInit {
       });
   };
 
+  goTo(path: string) {
+    this.router.navigate([`/${path}`]);
+  }
 
 };
