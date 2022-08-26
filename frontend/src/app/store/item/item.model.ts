@@ -3,6 +3,7 @@ export interface ItemStateModel {
     itemName: string,
     amount: number,
     description: string,
+    owner: string,
     createdAt?: string,
     updatedAt?: string,
     _v?: number
@@ -13,6 +14,7 @@ export const itemStateModelDefault = {
     itemName: '',
     amount: 0,
     description: '',
+    owner: '',
     createdAt: '',
     updatedAt: '',
     _v: 0

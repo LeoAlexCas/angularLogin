@@ -17,6 +17,7 @@ import { AuthGuard } from '../app/guards/auth/auth.guard';
 import { UserState } from './store/user/user.state';
 import { TokenInterceptorService } from './services/tokenInterceptor/token-interceptor.service';
 import { EditItemComponent } from './compoments/edit-item/edit-item.component';
+import { ItemState } from './store/item/item.state';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { EditItemComponent } from './compoments/edit-item/edit-item.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxsModule.forRoot([UserState]),
+    NgxsModule.forRoot([UserState, ItemState]),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [

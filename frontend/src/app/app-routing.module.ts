@@ -4,6 +4,7 @@ import { SigninComponent } from './compoments/signin/signin.component';
 import { SignupComponent } from './compoments/signup/signup.component';
 import { InventoryComponent } from './compoments/inventory/inventory.component';
 import { CreateItemComponent } from './compoments/create-item/create-item.component';
+import { EditItemComponent } from './compoments/edit-item/edit-item.component'; 
 import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateItemComponent,
+    canActivate: [ AuthGuard ]
+  },
+  {
+    path: 'edit',
+    component: EditItemComponent,
     canActivate: [ AuthGuard ]
   }
 ];

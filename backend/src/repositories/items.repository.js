@@ -37,6 +37,7 @@ const getItems = async () => {
 const getOneItem = async (data) => {
     try {   
         const item = await ItemModel.find({_id: data});
+        return item;
     } catch(error) {
         throw error;
     }

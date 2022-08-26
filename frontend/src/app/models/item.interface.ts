@@ -3,8 +3,9 @@ export interface Item {
     itemName: string,
     amount: number,
     description: string,
-    createdAt: string,
-    updatedAt: string,
+    owner: string,
+    createdAt?: string,
+    updatedAt?: string,
     _v?: number
 };
 

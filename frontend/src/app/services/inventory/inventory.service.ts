@@ -16,6 +16,14 @@ export class InventoryService {
     return this.http.get(this.items);
   };
 
+  getOneItem(_id: string) {
+    return this.http.get(this.items, {
+      headers: {
+        id: _id
+      }
+    });
+  }
+
   deleteItem(id: string) {
     return this.http.delete(`${this.items}/${id}`);
   };

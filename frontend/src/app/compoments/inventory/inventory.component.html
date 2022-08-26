@@ -20,7 +20,7 @@
                     <p>{{item.amount}}</p>    
                 </div>
                 <div class="col-1">
-                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-primary" (click)="this.goToEdit(item)">Edit</button>
                 </div>
                 <div class="col-2">
                     <button class="btn btn-danger" (click)="this.deleteItem(item._id)">Delete</button>
