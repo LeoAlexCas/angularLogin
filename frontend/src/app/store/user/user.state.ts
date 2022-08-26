@@ -16,6 +16,6 @@ export class UserState {
         ) {
         ctx.patchState({
             ...action.data
-        })
-    }
-}
+        });
+    };
+};

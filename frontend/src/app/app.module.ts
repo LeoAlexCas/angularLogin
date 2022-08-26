@@ -16,6 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from '../app/guards/auth/auth.guard';
 import { UserState } from './store/user/user.state';
 import { TokenInterceptorService } from './services/tokenInterceptor/token-interceptor.service';
+import { EditItemComponent } from './compoments/edit-item/edit-item.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TokenInterceptorService } from './services/tokenInterceptor/token-inter
     SignupComponent,
     SigninComponent,
     InventoryComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,

@@ -34,4 +34,12 @@ const getItems = async () => {
     };
 };
 
-module.exports = { createItem, updateItem, deleteItem, getItems };
+const getOneItem = async (data) => {
+    try {   
+        const item = await ItemModel.find({_id: data});
+    } catch(error) {
+        throw error;
+    }
+}
+
+module.exports = { createItem, updateItem, deleteItem, getItems, getOneItem };
