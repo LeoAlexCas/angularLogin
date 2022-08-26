@@ -21,6 +21,6 @@ export class InventoryService {
   };
 
   createItem(item: createdItem) {
-    return this.http.post(this.items, item);
+    return this.http.post(this.items, {item});
   }
 };

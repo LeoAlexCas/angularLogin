@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { createdItem } from 'src/app/models/createdItem.interface';
 import { InventoryService } from 'src/app/services/inventory/inventory.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,15 +18,23 @@ export class CreateItemComponent implements OnInit {
   };
 
   constructor(
-    private inventoryService: InventoryService
+    private inventoryService: InventoryService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   };
 
   createItem() {
-    this.inventoryService.createItem(this.created);
-
+    this.inventoryService.createItem(this.created)
+      .subscribe({
+        next: res => {
+          alert('Success!');
+          this.router.navigate(['/inventory']);
+        },
+        error: error => {
+          console.error(error);
+        }
+      });
   };
-
 };

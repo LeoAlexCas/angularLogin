@@ -34,6 +34,7 @@ export class InventoryComponent implements OnInit {
     this.inventoryService.deleteItem(id)
       .subscribe({
         next: deleted => {
+          window.location.reload();
           return deleted;
         },
         error: error => {

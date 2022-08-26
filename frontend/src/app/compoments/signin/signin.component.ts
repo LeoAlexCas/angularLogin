@@ -28,13 +28,16 @@ export class SigninComponent implements OnInit {
   signIn() {
     try {
       this.authService.postSignIn(this.user)
-        .subscribe(
-          res => {
+        .subscribe({
+          next: res => {
             this._store.dispatch(new SetUserState({ userName: this.user.email, roleId: 'user', token: (res as any).token }));
             console.log((res as any).token)
             this.router.navigate(['/inventory']);
+          },
+          error: error => {
+            console.error(error);
           }
-        );
+        });
     } catch(error) {
       console.error(error);
     }
