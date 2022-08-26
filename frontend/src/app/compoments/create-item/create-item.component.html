@@ -8,7 +8,7 @@
                 New Item
             </div>
             <div class="card-body">
-                <form action="">
+                <form (submit)="createItem()">
                     <div class="form-group">
                         <input type="text" name="itemName" [(ngModel)]="created.itemName" id="" placeholder="Item Name">
                     </div>
