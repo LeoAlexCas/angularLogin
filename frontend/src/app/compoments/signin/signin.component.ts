@@ -31,6 +31,7 @@ export class SigninComponent implements OnInit {
         .subscribe({
           next: res => {
             this._store.dispatch(new SetUserState({ userName: this.user.email, roleId: 'user', token: (res as any).token }));
+            sessionStorage.setItem("sessionToken", (res as any).token);
             console.log((res as any).token)
             this.router.navigate(['/inventory']);
           },

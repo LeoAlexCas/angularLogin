@@ -15,7 +15,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this._store.selectSnapshot(UserStateSelectors.SelectUserState)?.token;
+    const token = sessionStorage.getItem("sessionToken");
     const tokenReq = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`

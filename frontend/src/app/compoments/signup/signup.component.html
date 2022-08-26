@@ -5,7 +5,7 @@
                 SignUp
             </div>
             <div class="card-body">
-                <form (submit)="signUp()">
+                <form (submit)="signUp()" autocomplete="off">
                     <div class="form-group">
                         <input type="text" [(ngModel)]="user.email" name="email" id="" placeholder="Email" required autofocus>
                     </div>

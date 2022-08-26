@@ -12,12 +12,11 @@ export class AuthGuard implements CanActivate {
 
   constructor(
     private router: Router,
-    private _store: Store
   ) {}
 
   canActivate(): boolean {
-    if(this._store.selectSnapshot(UserStateSelectors.SelectUserState).token) {
-      console.log(`Token exists in guard, is ${this._store.selectSnapshot(UserStateSelectors.SelectUserState).token}`)
+    if(sessionStorage.getItem("sessionToken")) {
+      console.log(`Token exists in guard, is ${sessionStorage.getItem("sessionToken")}`)
       return true;
     }
 
