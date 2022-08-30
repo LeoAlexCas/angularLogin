@@ -60,6 +60,7 @@ export class EditItemComponent implements OnInit, OnDestroy {
     };
   };
 
+
   ngOnDestroy() {
     alert('destruye')
     sessionStorage.removeItem("editId");
