@@ -6,6 +6,7 @@ const signupRoute = require('../components/singup/signup.route');
 const postItemsRoute = require('../components/postItem/postItem.route');
 const getItemsRoute = require('../components/getItems/getItems.route');
 const deleteItemsRoute = require('../components/deleteItems/deleteItems.route');
+const updateItemRoute = require('../components/updateItem/updateItem.route');
 
 function routes(app) {
     postUserRoute(app);
