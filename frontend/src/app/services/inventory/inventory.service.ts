@@ -22,7 +22,7 @@ export class InventoryService {
         id: _id
       }
     });
-  }
+  };
 
   deleteItem(id: string) {
     return this.http.delete(`${this.items}/${id}`);
@@ -30,5 +30,9 @@ export class InventoryService {
 
   createItem(item: createdItem) {
     return this.http.post(this.items, {item});
-  }
+  };
+
+  updateItem(id: string, updatedItem: createdItem) {
+    return this.http.put(`${this.items}/${id}`, {updatedItem});
+  };
 };

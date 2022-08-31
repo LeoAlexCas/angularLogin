@@ -35,8 +35,8 @@ export class EditItemComponent implements OnInit, OnDestroy {
       this.edited.owner = item.owner || '';
     } else {
       const id = sessionStorage.getItem("editId") || '';
-      console.log('el id')
-      console.log(id)
+      console.log('el id');
+      console.log(id);
       if(id === '') {
         alert('No item found to update');
         this.router.navigate(['/inventory']);
@@ -60,9 +60,23 @@ export class EditItemComponent implements OnInit, OnDestroy {
     };
   };
 
+  updateItem() {
+    console.log('llamando update desde componente')
+    this.inventoryService.updateItem(sessionStorage.getItem("editId") || this.edited._id, this.edited)
+      .subscribe({
+        next: item => {
+          console.log(item);
+          console.log('updated');
+        },
+        error: error => {
+          console.error(error);
+        }
+      })
+  };
+
 
   ngOnDestroy() {
     alert('destruye')
     sessionStorage.removeItem("editId");
-  }
+  };
 };

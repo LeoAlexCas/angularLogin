@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <input type="text" name="owner" [(ngModel)]="edited.owner" id="" placeholder="User Owner">
                     </div>
-                    <button type="submit" class="btn btn-success btn-block">
+                    <button type="submit" class="btn btn-success btn-block" (click)="this.updateItem()">
                         Edit
                     </button>
                 </form>

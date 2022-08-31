@@ -6,7 +6,7 @@ const signupRoute = require('../components/singup/signup.route');
 const postItemsRoute = require('../components/postItem/postItem.route');
 const getItemsRoute = require('../components/getItems/getItems.route');
 const deleteItemsRoute = require('../components/deleteItems/deleteItems.route');
-const updateItemRoute = require('../components/updateItem/updateItem.route');
+const updateItemRoute = require('../components/updateItem/updateItem.route');  
 
 function routes(app) {
     postUserRoute(app);
@@ -17,6 +17,7 @@ function routes(app) {
     postItemsRoute(app);
     getItemsRoute(app);
     deleteItemsRoute(app);
+    updateItemRoute(app);
 };
 
 module.exports = routes;
