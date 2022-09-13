@@ -1,40 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../models/user.interface';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { SetUserState } from 'src/app/store/user/user.actions';
 import { Store } from '@ngxs/store';
-import { Observable, Observer, of } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, OnDestroy {
   user: User = {
     email: '',
     password: ''
   };
 
-  realPass: boolean = false;
-  usedPass = new Observable<boolean>((observer: Observer<boolean>) => {
-    // setInterval(() => {
-    //   let trueOrFalse = () => {
-    //     let randomNumber = Math.floor(Math.random() * 10);
-    //     if(randomNumber % 2 === 0) {
-    //       console.log(randomNumber)
-    //       return true
-    //     } else {
-    //       console.log(randomNumber)
-    //       return false
-    //     }
-    //   };
-    //   observer.next(trueOrFalse())
-    // },1000);
-    let ads = this.realPass;
-    observer.next(ads);
-  });
+  realPass$ = new BehaviorSubject(false);
+  realUsr$ = new BehaviorSubject(false);
 
   constructor(
     private authService: AuthService,
@@ -43,6 +27,12 @@ export class SigninComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+  }
+
+  ngOnDestroy(): void {
+    this.realPass$.unsubscribe();
+    this.realUsr$.unsubscribe();
   }
 
   signIn() {
@@ -57,17 +47,32 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['/inventory']);
           },
           error: error => {
-            console.log('el erorrrrrrrrrrrrrr')
-            console.log(error.error.message);
-            if(error.error.message === "Pass incorrecta") {
-              this.realPass = true;
-              console.log('el realpass')
-              console.log(this.realPass)
-            }
+            this.setMessages(error.error.message);
           }
         });
     } catch(error) {
       console.error(error);
+    }
+  }
+
+  deletePassErr() {
+    this.realPass$.next(false);
+  }
+
+  deleteUsrErr() {
+    this.realUsr$.next(false);
+  }
+
+  setMessages(message: string) {
+    switch(message) {
+      case "Pass incorrecta":
+        this.realPass$.next(true);
+        break;
+      case 'Usuario no existe':
+        this.realUsr$.next(true);
+        break;
+      default:
+        alert('Error: Cannot login');
     }
   }
 

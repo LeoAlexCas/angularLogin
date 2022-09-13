@@ -9,7 +9,9 @@ async function signInModule(req) {
         const { userName, pass } = req.body;
         const userTocheck = await getAuthByName(userName)
         if(userTocheck.length === 0) {
-            throw new Error("Nombre de usuario incorrecto");
+            throw {
+                message: 'Usuario no existe'
+            };
         };
         
         console.log('Chequeando userData');
