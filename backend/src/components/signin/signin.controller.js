@@ -5,7 +5,7 @@ async function signInController(req, res) {
         const response = await signInModule(req);
         res.status(200).send(response);
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     };
 };
 

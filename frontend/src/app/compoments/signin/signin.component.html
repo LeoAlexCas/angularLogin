@@ -12,6 +12,9 @@
                     <div class="form-group">
                         <input type="password" [(ngModel)]="user.password" name="password" id="" placeholder="Password" required>
                     </div>
+                    <div *ngIf="this.usedPass | async">
+                        <p>hola!</p>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block">
                         SignIn
                     </button>

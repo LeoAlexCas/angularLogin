@@ -22,7 +22,9 @@ async function signInModule(req) {
             token = jwt.sign(JSON.stringify(userData.userNumber), `${process.env.SECRET_WORD}`);
         } else {
             console.log('Pass Incorrecta');
-            throw new Error("Pass incorrecta");
+            throw {
+                message: 'Pass incorrecta'
+            };
         }
     
         return {
