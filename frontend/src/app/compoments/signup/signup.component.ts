@@ -25,13 +25,13 @@ export class SignupComponent implements OnInit {
   signUp() {
     try {
       this.authService.postSignUp(this.user)
-      .subscribe(
-        res => { 
+      .subscribe({
+        next: res => { 
           console.log((res as any).token);
           sessionStorage.setItem('token', (res as any).token);
           this.router.navigate(['/inventory']);
         }
-      )
+      })
     } catch(error) {
       console.error(error);
     }
