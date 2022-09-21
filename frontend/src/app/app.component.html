@@ -25,9 +25,14 @@
         </ul>
       </div>
     </div>
+    <div>
+      <button class="btn btn-primary" (click)="this.creditsButton()">Credits</button>
+    </div>
   </nav>
 
 <div class="container p-5">
     <router-outlet></router-outlet>
 </div>
-
+<div class="container p-5 modal-container" *ngIf="this.creditModalValue">
+    <app-credits-modal></app-credits-modal>
+</div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from './services/auth/auth.service';
+import { CreditsSwitchService } from './services/credits-switch/credits-switch.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,23 @@ import { AuthService } from './services/auth/auth.service';
 })
 export class AppComponent implements OnInit {
   public title = 'frontend';  
+  public creditModalValue = false;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public creditSwitch: CreditsSwitchService
   ) {}
 
   ngOnInit() {
+    this.creditSwitch.$creditSwitch
+      .subscribe({
+        next: (value: boolean) => {
+          this.creditModalValue = value;
+        }
+      })
   };
+
+  creditsButton() {
+    this.creditSwitch.$creditSwitch.emit(true);
+  }
 };

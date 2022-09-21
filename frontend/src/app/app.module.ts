@@ -18,6 +18,7 @@ import { UserState } from './store/user/user.state';
 import { TokenInterceptorService } from './services/tokenInterceptor/token-interceptor.service';
 import { EditItemComponent } from './compoments/edit-item/edit-item.component';
 import { ItemState } from './store/item/item.state';
+import { CreditsModalComponent } from './compoments/credits-modal/credits-modal.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ItemState } from './store/item/item.state';
     SigninComponent,
     InventoryComponent,
     CreateItemComponent,
-    EditItemComponent
+    EditItemComponent,
+    CreditsModalComponent
   ],
   imports: [
     BrowserModule,
