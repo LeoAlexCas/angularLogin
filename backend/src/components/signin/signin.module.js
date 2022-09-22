@@ -8,6 +8,7 @@ async function signInModule(req) {
         console.log('capturando user y pass')
         const { userName, pass } = req.body;
         const userTocheck = await getAuthByName(userName)
+        console.log(userTocheck)
         if(userTocheck.length === 0) {
             throw {
                 message: 'Usuario no existe'

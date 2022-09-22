@@ -1,20 +1,14 @@
+const userBuild = require('../../../fixtures/auth.fixture');
+
 describe("signin must", () => {
     beforeEach(() => {
         jest.resetModules();
     });
 
     it('return success', async () => {
+        const auth = userBuild();
         jest.doMock("../../../../src/repositories/auth.repository", () => ({
-            getAuthByName: jest.fn(() => Promise.resolve([{
-                _id: 'asasfsad',
-                userName: 'castroleonardo@live.cl',
-                pass: '$2a$10$HhEiX6Xu84iOSvYTTxteIeE.oZBswnmZtxgoR0E0SKuFZXwgtGCMq',
-                roleId: 'admin',
-                userNumber: '13131',
-                createdAt: '2022-08-24T03:07:36.617+00:00',
-                updatedAt: '2022-08-24T03:07:36.617+00:00',
-                __v: '0'
-            }]))
+            getAuthByName: jest.fn(() => Promise.resolve(auth))
         }));
 
         const req = {
