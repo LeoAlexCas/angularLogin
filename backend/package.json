@@ -4,7 +4,7 @@
   "description": "angunar auth back",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "dev": "node src/index.js",
     "local": "nodemon src/index.js"
   },
@@ -20,6 +20,7 @@
     "mongoose": "^6.4.5"
   },
   "devDependencies": {
+    "node-mocks-http": "^1.11.0",
     "nodemon": "^2.0.19"
   }
 }
